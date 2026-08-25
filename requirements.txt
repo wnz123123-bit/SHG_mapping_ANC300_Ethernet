@@ -1,0 +1,3 @@
+# Standard-library-only application: no third-party Python packages are required.
+# No pyserial or pyLabLib dependency is used.
+# Use 64-bit Python with tkinter enabled.

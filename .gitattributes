@@ -1,0 +1,12 @@
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.bat text eol=crlf
+*.dll binary
+*.pdf binary
+*.gif binary
+*.zip binary
+*.llb binary
+*.sys binary
+*.inf text eol=crlf

@@ -1,0 +1,19 @@
+# Local hardware configuration may contain controller credentials and IPs.
+config.json
+config.before_*.json
+config.pre_*.json
+
+# Runtime data and diagnostics.
+results/
+crash_log.txt
+
+# Python-generated files.
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Editor and OS metadata.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,44 @@
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%ATTOCUBE%
+DriverVer=08/17/2004,0.0.2.0
+; Copyright (C) 2004 Al Borchers (alborchers@steinerpoint.com)
+
+[Manufacturer]
+%ATTOCUBE%=ANC300SerialDeviceList
+
+[ANC300SerialDeviceList]
+%ANC300SERIAL%=ANC300SerialInstall, USB\VID_0525&PID_A4A7
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[ANC300SerialInstall]
+CopyFiles=ANC300SerialCopyFiles
+AddReg=ANC300SerialAddReg
+
+[ANC300SerialCopyFiles]
+usbser.sys
+
+[ANC300SerialAddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[ANC300SerialInstall.Services]
+AddService = usbser,0x0002,ANC300SerialService
+
+[ANC300SerialService]
+DisplayName = %ANC300SERIAL_DISPLAY_NAME%
+ServiceType = 1                  ; SERVICE_KERNEL_DRIVER
+StartType = 3                    ; SERVICE_DEMAND_START
+ErrorControl = 1                 ; SERVICE_ERROR_NORMAL
+ServiceBinary = %10%\System32\Drivers\usbser.sys
+LoadOrderGroup = Base
+
+[Strings]
+ATTOCUBE = "Attocube"
+ANC300SERIAL = "ANC300 Serial"
+ANC300SERIAL_DISPLAY_NAME = "USB ANC300 Serial Driver"
